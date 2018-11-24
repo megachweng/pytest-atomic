@@ -19,7 +19,7 @@ install:
 
 script:
   - tox -e $TOX_ENV
-  - coverage run tests/test_atomic.py
+  - coverage run tests/test_pytest_atomic.py
 before_cache:
   - rm -rf $HOME/.cache/pip/log
 

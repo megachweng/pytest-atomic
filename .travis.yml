@@ -1,0 +1,30 @@
+sudo: false
+language: python
+
+matrix:
+  include:
+    - python: 3.6
+      dist: xenial
+      env: TOX_ENV=py36
+      sudo: true
+    - python: 3.7
+      dist: xenial
+      env: TOX_ENV=py37
+      sudo: true
+
+install:
+  - pip install tox
+  - pip install -e .
+  - pip install codecov
+
+script:
+  - tox -e $TOX_ENV
+  - coverage run tests/test_atomic.py
+before_cache:
+  - rm -rf $HOME/.cache/pip/log
+
+after_success:
+  - codecov
+cache:
+  directories:
+    - $HOME/.cache/pip

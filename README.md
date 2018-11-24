@@ -21,7 +21,7 @@ Skip rest of tests if previous test failed.
 [pytest]
 [atomic]
 enable     : true
-electronic : @
+electronic : true
 ```
 ## Options
 >**Notice!** [pytest]section must be included.  
